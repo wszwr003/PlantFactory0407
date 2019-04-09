@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerDirection]="'root'" [routerLink]="url_time">
+        <ion-icon name="time"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style=text-align:center>历史数据</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+  <ion-content>
+    <div class="flex">
+      <div class="flex-item">
+        <div style="display: block;">
+        <canvas baseChart width="400" height="200"
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="lineChartOptions"
+                    [colors]="lineChartColors"
+                    [legend]="lineChartLegend"
+                    [chartType]="lineChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+      <div class="flex-item">
+        <button mat-button mat-raised-button color="primary" (click)="pushOne()">Push</button>
+      </div>
+    </div>
+</ion-content>

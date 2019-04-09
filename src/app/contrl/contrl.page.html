@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style=text-align:center>控制设置</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="masters">
+  <ion-img class="icon-state" src="./assets/open.png" ></ion-img>
+  <!-- <ion-toggle class="switch" color="success" [(ngModel)]="pepperoni"></ion-toggle> -->
+  <ion-button class="button-switch"  size="large" color="success" shape="round">
+      <ion-icon slot="icon-only" name="radio-button-on"></ion-icon>
+  </ion-button>
+  <ion-button  class="button-time"  size="large"  color="success"  shape="round">
+      <ion-icon slot="icon-only" name="time"></ion-icon>
+  </ion-button>
+  <ion-button  class="button-cond" size="large"   color="success" shape="round">
+      <ion-icon slot="icon-only" name="git-compare"></ion-icon>
+  </ion-button>
+  <p class="text-state">已开启</p>
+  <p class="text-switch">开关</p>
+  <p class="text-time">自动控制</p>
+  <p class="text-cond">条件控制</p>
+</ion-content>

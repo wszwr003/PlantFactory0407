@@ -1,0 +1,63 @@
+.switch 
+{
+  max-width: 24.5vw;
+  float: left;
+}
+.icon-state {
+  max-height: 26vh;
+  max-width: 26vw;
+}
+
+.icon-state
+{
+  position:absolute;
+  left:37vw;
+  top:10vh
+}
+.button-switch 
+{
+  position:absolute;
+  left:30vw;
+  top:70vh;
+}
+.button-time
+{
+  position:absolute;
+  left:47vw;
+  top:70vh;
+}
+.button-cond
+{
+  position:absolute;
+  left:64vw;
+  top:70vh;
+}
+
+.text-state
+{
+  position:absolute;
+  left:48vw;
+  top:51vh
+}
+.text-switch 
+{
+  position:absolute;
+  left:31.6vw;
+  top:76vh;
+}
+.text-time
+{
+  position:absolute;
+  left:47.5vw;
+  top:76vh;
+}
+.text-cond
+{
+  position:absolute;
+  left:64.5vw;
+  top:76vh;
+}
+
+.masters {
+  background-color: green;
+}
