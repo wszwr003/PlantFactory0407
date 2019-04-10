@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  public url_contrl:string = '/contrl';
+  public url_contrl: string = '/contrl';
   private selectedItem: any;
   private names = [
     '风机开关',
