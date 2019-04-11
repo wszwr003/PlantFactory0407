@@ -3,16 +3,16 @@
   max-width: 24.5vw;
   float: left;
 }
-.icon-state {
-  max-height: 26vh;
-  max-width: 26vw;
+.icon-state-size {
+  max-height: 6vh;
+  max-width: 6vw;
 }
 
-.icon-state
+.icon-state-location
 {
-  position:absolute;
+  position:relative;
   left:37vw;
-  top:10vh
+  //top:10vh
 }
 .button-switch 
 {

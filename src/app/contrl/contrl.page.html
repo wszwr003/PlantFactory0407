@@ -8,19 +8,24 @@
 </ion-header>
 
 <ion-content padding class="masters">
-  <ion-img class="icon-state" src="./assets/open.png" ></ion-img>
+  <div *ngFor="let button of buttons">
+    <ion-img *ngIf="states[button-1]==='已开启'" class="icon-state-size icon-state-location"src="./assets/open.png" ></ion-img>
+    <ion-img *ngIf="states[button-1]==='已关闭'" class="icon-state-size icon-state-location"src="./assets/close.png" ></ion-img>
+  </div>
+  <p *ngFor="let state of states">{{state}}</p>
   <!-- <ion-toggle class="switch" color="success" [(ngModel)]="pepperoni"></ion-toggle> -->
   <ion-button class="button-switch"  size="large" color="success" shape="round">
       <ion-icon slot="icon-only" name="radio-button-on"></ion-icon>
   </ion-button>
+  <p class="text-switch">开关</p>
+
   <ion-button  class="button-time"  size="large"  color="success"  shape="round">
       <ion-icon slot="icon-only" name="time"></ion-icon>
   </ion-button>
+  <p class="text-time">自动控制</p>
+
   <ion-button  class="button-cond" size="large"   color="success" shape="round">
       <ion-icon slot="icon-only" name="git-compare"></ion-icon>
   </ion-button>
-  <p class="text-state">已开启</p>
-  <p class="text-switch">开关</p>
-  <p class="text-time">自动控制</p>
   <p class="text-cond">条件控制</p>
 </ion-content>
