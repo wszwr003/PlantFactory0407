@@ -19,7 +19,10 @@ const routes: Routes = [
   { path: 'collect', loadChildren: './collect/collect.module#CollectPageModule' },
   { path: 'alarm', loadChildren: './alarm/alarm.module#AlarmPageModule' },
   { path: 'history', loadChildren: './history/history.module#HistoryPageModule' },
-  { path: 'time', loadChildren: './history/time/time.module#TimePageModule' }
+  { path: 'time', loadChildren: './history/time/time.module#TimePageModule' },
+  { path: 'contrl-time', loadChildren: './contrl-time/contrl-time.module#ContrlTimePageModule' },
+  { path: 'contrl-condition', loadChildren: './contrl-condition/contrl-condition.module#ContrlConditionPageModule' },
+  { path: 'water', loadChildren: './water/water.module#WaterPageModule' }
 ];
 
 @NgModule({
