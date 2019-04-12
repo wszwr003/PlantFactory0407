@@ -1,8 +1,8 @@
 {
   "name": "PlantFactory0407",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "ZhuoYuan Team",
+  "homepage": "http://www.tsinghua-zj.edu.cn",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

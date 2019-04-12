@@ -10,10 +10,10 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
 export class HistoryPage implements OnInit {
   public url_time:string = '/time';
   public lineChartData: ChartDataSets[] = [
-    { data: [15, 17, 29, 33, 37, 25, 16], label: '温度(℃)', yAxisID: 'y-axis-1' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: '湿度(%)', yAxisID: 'y-axis-0' },
-    { data: [1800, 480, 770, 900, 1000, 2700, 4000], label: '二氧化碳浓度(PPM)', yAxisID: 'y-axis-2' },
-    { data: [180, 480, 770, 90, 1000, 270, 400], label: '光照强度(LX)', yAxisID: 'y-axis-3' }
+    { data: [], label: '温度(℃)', yAxisID: 'y-axis-1' },
+    { data: [], label: '湿度(%)', yAxisID: 'y-axis-0' },
+    { data: [], label: '二氧化碳浓度(PPM)', yAxisID: 'y-axis-2' },
+    { data: [], label: '光照强度(LX)', yAxisID: 'y-axis-3' }
   ];
   public lineChartLabels: Label[] = ['13：00', '13：01', '13：02', '13：03', '13：04', '13：05', '13：06'];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
@@ -25,9 +25,9 @@ export class HistoryPage implements OnInit {
         {
           id: 'y-axis-0',
           position: 'left',
-          gridLines: {
-            color: 'rgba(79,79,79,1)', //gray
-          },
+          // gridLines: {
+          //   color: 'rgba(79,79,79,1)', //gray
+          // },
           ticks: {
             fontColor: 'rgba(79,79,79,1)',
           }
@@ -35,9 +35,9 @@ export class HistoryPage implements OnInit {
         {
           id: 'y-axis-1',
           position: 'left',
-          gridLines: {
-            color: 'rgba(255,69,0,1)', //orange
-          },
+          // gridLines: {
+          //   color: 'rgba(255,69,0,1)', //orange
+          // },
           ticks: {
             fontColor: 'rgba(255,69,0,1)',
           }
@@ -45,9 +45,9 @@ export class HistoryPage implements OnInit {
         {
           id: 'y-axis-2',
           position: 'right',
-          gridLines: {
-            color: 'rgba(0,191,255,1)',//blue
-          },
+          // gridLines: {
+          //   color: 'rgba(0,191,255,1)',//blue
+          // },
           ticks: {
             fontColor: 'rgba(0,191,255,1)',
           }
@@ -55,9 +55,9 @@ export class HistoryPage implements OnInit {
         {
           id: 'y-axis-3',
           position: 'right',
-          gridLines: {
-            color: 'rgba(34,139,34,1)',//green
-          },
+          // gridLines: {
+          //   color: 'rgba(34,139,34,1)',//green
+          // },
           ticks: {
             fontColor: 'rgba(34,139,34,1)',
           }
@@ -147,6 +147,6 @@ export class HistoryPage implements OnInit {
       const data: number[] = x.data as number[];
       data.push(num);
     });
-    this.lineChartLabels.push(`Label ${this.lineChartLabels.length}`);
+    this.lineChartLabels.push(`13:06`);
   }
 }

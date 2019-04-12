@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contrl.page.scss'],
 })
 export class ContrlPage implements OnInit {
-  private buttons = [1,2,3,4,5,6,7,8,9,10]
-  private states = ["已开启","已开启","已开启","已开启","已开启","已开启","已关闭","已关闭","已关闭","已关闭"]
+  public url_list:string = '/list';
+  public url_contrl_time:string = '/contrl-time';
+  public url_contrl_condition:string = '/contrl-condition';
+  private states = [open,open,open,open,open,open,close,close,close,close,]
+  private states_dis = ["已开启","已开启","已开启","已开启","已开启","已开启","已关闭","已关闭","已关闭","已关闭"]
   
   constructor() { }
 

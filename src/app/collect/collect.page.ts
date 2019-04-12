@@ -8,6 +8,7 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
   styleUrls: ['./collect.page.scss'],
 })
 export class CollectPage implements OnInit {
+  public url_history:string = '/history';
   public lineChartData: ChartDataSets[] = [
     { data: [15, 17, 29, 33, 37, 25, 16], label: '温度(℃)', yAxisID: 'y-axis-1' },
     { data: [28, 48, 40, 19, 86, 27, 90], label: '湿度(%)', yAxisID: 'y-axis-0' },
@@ -24,9 +25,9 @@ export class CollectPage implements OnInit {
         {
           id: 'y-axis-0',
           position: 'left',
-          gridLines: {
-            color: 'rgba(79,79,79,1)', //gray
-          },
+          // gridLines: {
+          //   color: 'rgba(79,79,79,1)', //gray
+          // },
           ticks: {
             fontColor: 'rgba(79,79,79,1)',
           }
@@ -34,9 +35,9 @@ export class CollectPage implements OnInit {
         {
           id: 'y-axis-1',
           position: 'left',
-          gridLines: {
-            color: 'rgba(255,69,0,1)', //orange
-          },
+          // gridLines: {
+          //   color: 'rgba(255,69,0,1)', //orange
+          // },
           ticks: {
             fontColor: 'rgba(255,69,0,1)',
           }
@@ -44,9 +45,9 @@ export class CollectPage implements OnInit {
         {
           id: 'y-axis-2',
           position: 'right',
-          gridLines: {
-            color: 'rgba(0,191,255,1)',//blue
-          },
+          // gridLines: {
+          //   color: 'rgba(0,191,255,1)',//blue
+          // },
           ticks: {
             fontColor: 'rgba(0,191,255,1)',
           }
@@ -54,9 +55,9 @@ export class CollectPage implements OnInit {
         {
           id: 'y-axis-3',
           position: 'right',
-          gridLines: {
-            color: 'rgba(34,139,34,1)',//green
-          },
+          // gridLines: {
+          //   color: 'rgba(34,139,34,1)',//green
+          // },
           ticks: {
             fontColor: 'rgba(34,139,34,1)',
           }

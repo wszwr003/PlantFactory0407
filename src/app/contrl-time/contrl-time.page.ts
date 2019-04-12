@@ -6,10 +6,52 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contrl-time.page.scss'],
 })
 export class ContrlTimePage implements OnInit {
-
-  constructor() { }
+  private selectedItem: any;
+  private names = [
+    '1:00<=时间<=2:30',
+    '4:00<=时间<=4:30',
+    '5:00<=时间<=7:30',
+    '8:00<=时间<=9:30',
+    '12:00<=时间<=13:30',
+    '17:00<=时间<=22:30',
+    '1:00<=时间<=2:30',
+    '4:00<=时间<=4:30',
+    '5:00<=时间<=7:30',
+    '8:00<=时间<=9:30',
+    '12:00<=时间<=13:30',
+    '17:00<=时间<=22:30',
+  ];
+  private subs = [
+    '水泵开关（继电器3）：打开',
+    '水泵开关（继电器3）：打开',
+    '水泵开关（继电器3）：打开',
+    '水泵开关（继电器3）：打开',
+    '水泵开关（继电器3）：打开',
+    '水泵开关（继电器3）：打开',
+    '光照开关（继电器1）：打开',
+    '光照开关（继电器1）：打开',
+    '光照开关（继电器1）：打开',
+    '光照开关（继电器1）：打开',
+    '光照开关（继电器1）：打开',
+    '光照开关（继电器1）：打开',
+  ];
+  private icon;
+  public items: Array<{ title: string; note: string; icon: string }> = [];
+  constructor() {
+    for (let i = 0; i < this.names.length; i++) {
+      this.items.push({
+        title: this.names[i],
+        note: this.subs[i],
+        icon: 'switch'
+      });
+    }
+  }
 
   ngOnInit() {
   }
-
+  // add back when alpha.4 is out
+  // navigate(item) {
+  //   this.router.navigate(['/list', JSON.stringify(item)]);
+  // }
 }
+

@@ -1,9 +1,33 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>contrl-condition</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/contrl"></ion-back-button>返回
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button [routerDirection]="'root'" [routerLink]="url_history">
+              <ion-icon name="add" ></ion-icon>添加
+            </ion-button>
+          </ion-buttons>
+      <ion-title  style=text-align:center>
+        通过传感器数据控制
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+        <ion-icon [name]="item.icon" slot="start"></ion-icon>
+        {{item.title}}
+        <div class="item-note" slot="end">
+          {{item.note}}
+        </div>
+      </ion-item>
+  
+    </ion-list>
+    <!--
+      <div *ngIf="selectedItem" padding>
+        You navigated here from <b>{{selectedItem.title }}</b>
+      </div>
+    -->
+  </ion-content>

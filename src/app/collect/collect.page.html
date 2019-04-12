@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title style=text-align:center>数据采集</ion-title>
+    <ion-title style=text-align:center>数据采集节点</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-back-button defaultHref="/"></ion-back-button>返回
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="more"></ion-icon>
+      <ion-button [routerDirection]="'root'" [routerLink]="url_history">
+        <ion-icon name="time" ></ion-icon>历史数据
       </ion-button>
     </ion-buttons>
     
