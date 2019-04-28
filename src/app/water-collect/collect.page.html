@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style=text-align:center>营养液实时数据</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/water"></ion-back-button>返回
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [routerDirection]="'root'" [routerLink]="url_history">
+        <ion-icon name="time" ></ion-icon>历史数据
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+  <ion-content>
+    <div class="flex">
+      <div class="flex-item">
+        <div style="display: block;">
+        <canvas baseChart width="400" height="200"
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="lineChartOptions"
+                    [colors]="lineChartColors"
+                    [legend]="lineChartLegend"
+                    [chartType]="lineChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+    </div>
+</ion-content>

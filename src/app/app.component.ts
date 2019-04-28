@@ -47,7 +47,7 @@ export class AppComponent {
     // },
     {
       title: '系统设置',
-      url: '/contrl-condition',
+      url: '',
       icon: 'list'
     },
   ];

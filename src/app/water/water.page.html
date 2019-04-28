@@ -2,11 +2,113 @@
     <ion-toolbar>
       <ion-title style=text-align:center>营养液采集控制节点</ion-title>
       <ion-buttons slot="start">
-          <ion-back-button defaultHref="/"></ion-back-button>返回
+        <ion-back-button defaultHref="/"></ion-back-button>返回
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button [routerDirection]="'root'" [routerLink]="url_collect">
+          <ion-icon name="settings"></ion-icon>实时数据
+        </ion-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
   
-  <ion-content>
-  </ion-content>
+  <ion-content padding class="masters">
+    <!-- <p *ngFor="let state of states_dis;let i = index" [attr.data-index]="i">
+      <ion-img (click)="onSelect(state,i)"[class]="locate_icon_class[i]" ng-src="onIcon(state)" " ></ion-img>
+    </p> -->
+    <p>
+      <ion-img (click)="onSelect(states_dis[0],0)" *ngIf="states_dis[0]==='已开启'"
+        class="icon-state-size icon-state-location0" src="./assets/open.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[0],0)" *ngIf="states_dis[0]==='已关闭'"
+        class="icon-state-size icon-state-location0" src="./assets/close.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[1],1)" *ngIf="states_dis[1]==='已开启'"
+        class="icon-state-size icon-state-location1" src="./assets/open.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[1],1)" *ngIf="states_dis[1]==='已关闭'"
+        class="icon-state-size icon-state-location1" src="./assets/close.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[2],2)" *ngIf="states_dis[2]==='已开启'"
+        class="icon-state-size icon-state-location2" src="./assets/open.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[2],2)" *ngIf="states_dis[2]==='已关闭'"
+        class="icon-state-size icon-state-location2" src="./assets/close.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[3],3)" *ngIf="states_dis[3]==='已开启'"
+        class="icon-state-size icon-state-location3" src="./assets/open.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[3],3)" *ngIf="states_dis[3]==='已关闭'"
+        class="icon-state-size icon-state-location3" src="./assets/close.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[4],4)" *ngIf="states_dis[4]==='已开启'"
+        class="icon-state-size icon-state-location4" src="./assets/open.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[4],4)" *ngIf="states_dis[4]==='已关闭'"
+        class="icon-state-size icon-state-location4" src="./assets/close.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[5],5)" *ngIf="states_dis[5]==='已开启'"
+        class="icon-state-size icon-state-location5" src="./assets/open.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[5],5)" *ngIf="states_dis[5]==='已关闭'"
+        class="icon-state-size icon-state-location5" src="./assets/close.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[6],6)" *ngIf="states_dis[6]==='已开启'"
+        class="icon-state-size icon-state-location6" src="./assets/open.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[6],6)" *ngIf="states_dis[6]==='已关闭'"
+        class="icon-state-size icon-state-location6" src="./assets/close.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[7],7)" *ngIf="states_dis[7]==='已开启'"
+        class="icon-state-size icon-state-location7" src="./assets/open.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[7],7)" *ngIf="states_dis[7]==='已关闭'"
+        class="icon-state-size icon-state-location7" src="./assets/close.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[8],8)" *ngIf="states_dis[8]==='已开启'"
+        class="icon-state-size icon-state-location8" src="./assets/open.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[8],8)" *ngIf="states_dis[8]==='已关闭'"
+        class="icon-state-size icon-state-location8" src="./assets/close.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[9],9)" *ngIf="states_dis[9]==='已开启'"
+        class="icon-state-size icon-state-location9" src="./assets/open.png">
+      </ion-img>
+      <ion-img (click)="onSelect(states_dis[9],9)" *ngIf="states_dis[9]==='已关闭'"
+        class="icon-state-size icon-state-location9" src="./assets/close.png">
+      </ion-img>
+    </p>
+    <p class="text-state0">{{states_dis[0]}}</p>
+    <p class="text-state1">{{states_dis[1]}}</p>
+    <p class="text-state2">{{states_dis[2]}}</p>
+    <p class="text-state3">{{states_dis[3]}}</p>
+    <p class="text-state4">{{states_dis[4]}}</p>
+    <p class="text-state5">{{states_dis[5]}}</p>
+    <p class="text-state6">{{states_dis[6]}}</p>
+    <p class="text-state7">{{states_dis[7]}}</p>
+    <p class="text-state8">{{states_dis[8]}}</p>
+    <p class="text-state9">{{states_dis[9]}}</p>
+    <p class="text-name0">营养液加热</p>
+    <p class="text-name1">营养液加水</p>
+    <p class="text-name2">蠕动泵A</p>
+    <p class="text-name3">蠕动泵B</p>
+    <p class="text-name4">蠕动泵C</p>
+    <p class="text-name5">蠕动泵D</p>
+    <p class="text-name6">蠕动泵E</p>
+    <p class="text-name7">继电器8</p>
+    <p class="text-name8">继电器9</p>
+    <p class="text-name9">继电器10</p>
   
+    <!-- <ion-toggle class="switch" color="success" [(ngModel)]="pepperoni"></ion-toggle> -->
+    <ion-button [routerDirection]="'root'" [routerLink]="url_contrl_time" class="button-time" size="large" color="success"
+      shape="round">
+      <ion-icon slot="icon-only" name="time"></ion-icon>
+    </ion-button>
+    <p class="text-time">自动控制</p>
+  
+    <ion-button [routerDirection]="'root'" [routerLink]="url_contrl_condition" class="button-cond" size="large"
+      color="success" shape="round">
+      <ion-icon slot="icon-only" name="git-compare"></ion-icon>
+    </ion-button>
+    <p class="text-cond">条件控制</p>
+  </ion-content>

@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NodeCardComponent } from './node-card.component';
+import { TimePage } from './time.page';
 
-describe('NodeCardComponent', () => {
-  let component: NodeCardComponent;
-  let fixture: ComponentFixture<NodeCardComponent>;
+describe('TimePage', () => {
+  let component: TimePage;
+  let fixture: ComponentFixture<TimePage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NodeCardComponent ],
+      declarations: [ TimePage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NodeCardComponent);
+    fixture = TestBed.createComponent(TimePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

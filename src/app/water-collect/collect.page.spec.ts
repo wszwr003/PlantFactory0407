@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GraphicComponent } from './graphic.component';
+import { CollectPage } from './collect.page';
 
-describe('GraphicComponent', () => {
-  let component: GraphicComponent;
-  let fixture: ComponentFixture<GraphicComponent>;
+describe('CollectPage', () => {
+  let component: CollectPage;
+  let fixture: ComponentFixture<CollectPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GraphicComponent ],
+      declarations: [ CollectPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GraphicComponent);
+    fixture = TestBed.createComponent(CollectPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
