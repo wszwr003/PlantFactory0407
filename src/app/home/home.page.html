@@ -1,19 +1,39 @@
 <!-- <ion-ion-img src="/assets/节点主界面3.png"></ion-ion-img> -->
 <ion-header>
-	<ion-toolbar>
+	<ion-toolbar color="light">
 		<ion-buttons slot="start">
 			<ion-menu-button autoHide="false"></ion-menu-button>目录
 		</ion-buttons>
 		<ion-buttons slot="secondary">
-			<ion-button>
-				<ion-icon slot="icon-only" name="add" (click)="onClick()"></ion-icon>添加
+			<ion-button (click)="presentPopover($event)">
+				<ion-icon slot="icon-only" name="add" ></ion-icon>添加
 			</ion-button>
 		</ion-buttons>
 		<ion-title style=text-align:center>控制系统结构</ion-title>
 	</ion-toolbar>
 </ion-header>
-<ion-content>
-	<table id="__01" cellpadding="0" cellspacing="0">
+<ion-content color="success">
+	<ion-grid  *ngIf="iscard" >
+		<ion-row>
+			<ion-col *ngFor="let card of cards" size-xs="6" size-sm="6" size-md="4" size-lg="3">
+				<ion-card color="light">
+				<ion-card-header>
+					<ion-chip color="success" style="position: absolute;top: 1rem;right: 1rem;">
+						<ion-label>{{card.loc}}</ion-label>
+					</ion-chip>
+					<ion-card-title>{{card.name}}</ion-card-title>
+					<ion-card-subtitle>{{card.addr}}</ion-card-subtitle>
+				</ion-card-header>
+				
+				<ion-card-content>
+					<img src="./assets/{{card.kind}}.png" style="width: 3rem">
+				</ion-card-content>
+				</ion-card>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+
+	<table *ngIf="!iscard" id="__01" cellpadding="0" cellspacing="0">
 		<tr>
 			<td colspan="6">
 				<ion-img [routerDirection]="'root'" [routerLink]="url_contrl" src="./assets/nodesUI/nodesUI_01.gif"></ion-img>
@@ -45,11 +65,15 @@
 			</td>
 		</tr>
 	</table>
-	<p class="text-state0">地址：0x31</p>
+	<!-- <p class="text-state0">地址：0x31</p>
 	<p class="text-state1">地址：0x11</p>
 	<p class="text-state2">地址：0x21</p>
 	<p class="text-state3">地址：0x22</p>
 	<p class="text-state4">地址：0x23</p>
-	<p class="text-state5">地址：0x24</p>
-
+	<p class="text-state5">地址：0x24</p> -->
 </ion-content>
+<!-- <ion-footer>
+	<ion-toolbar>
+		<ion-title>Footer</ion-title>
+	</ion-toolbar>
+</ion-footer> -->

@@ -3,7 +3,7 @@
     <name>A Plant System</name>
     <description>An awesome plant environment control app.</description>
     <author email="whl7770@gmail.com" href="http://www.tsinghua-zj.edu.cn">ZhuoYuan Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.1.2:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -85,4 +85,5 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^3.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <allow-navigation href="http://192.168.43.145:8100" sessionid="8e643129" />
+    <allow-navigation href="http://192.168.1.2:8100" sessionid="54dd2711" />
 </widget>
