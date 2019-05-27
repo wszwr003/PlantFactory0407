@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { LabTabComponent } from './home/lab-tab/lab-tab.component'
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'tabs/ctrl/ctrl',
     pathMatch: 'full'
   },
   {
@@ -27,7 +27,42 @@ const routes: Routes = [
   { path: 'water-time', loadChildren: './water-time/contrl-time.module#ContrlTimePageModule' },
   { path: 'contrl-condition', loadChildren: './contrl-condition/contrl-condition.module#ContrlConditionPageModule' },
   { path: 'water-condition', loadChildren: './water-condition/contrl-condition.module#ContrlConditionPageModule' },
-  { path: 'water', loadChildren: './water/water.module#WaterPageModule' }
+  { path: 'water', loadChildren: './water/water.module#WaterPageModule' },
+  {
+    path: 'tabs',
+    component: LabTabComponent,
+    children: [
+      {
+        path: 'ctrl',
+        children: [
+          {
+            path: '',
+            loadChildren: './home/home.module#HomePageModule'
+          }
+        ],
+      },
+      {
+        path: 'deployed',
+        children: [
+          {
+            path: '',
+            loadChildren: './home/home.module#HomePageModule'
+          }
+        ],
+      },
+      {
+        path: 'settings',
+        children: [
+          {
+            path: '',
+            loadChildren: './home/home.module#HomePageModule'
+          }
+        ],
+      }
+    ]
+  }
+
+
 ];
 
 @NgModule({
@@ -36,4 +71,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

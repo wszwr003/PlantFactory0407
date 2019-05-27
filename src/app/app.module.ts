@@ -9,11 +9,12 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PopoverComponent } from './home/popover.component';
+// import { PopoverComponent } from './home/popover.component';
+import { LabTabComponent } from './home/lab-tab/lab-tab.component'
 
 @NgModule({
-  declarations: [AppComponent,PopoverComponent],
-  entryComponents: [PopoverComponent],
+  declarations: [AppComponent,LabTabComponent],
+  // entryComponents: [PopoverComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

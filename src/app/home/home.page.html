@@ -1,39 +1,60 @@
 <!-- <ion-ion-img src="/assets/节点主界面3.png"></ion-ion-img> -->
 <ion-header>
-	<ion-toolbar color="light">
+	<ion-toolbar>
 		<ion-buttons slot="start">
-			<ion-menu-button autoHide="false"></ion-menu-button>目录
+			<ion-menu-button autoHide="false"></ion-menu-button>植物工厂控制系统
 		</ion-buttons>
 		<ion-buttons slot="secondary">
 			<ion-button (click)="presentPopover($event)">
 				<ion-icon slot="icon-only" name="add" ></ion-icon>添加
 			</ion-button>
 		</ion-buttons>
-		<ion-title style=text-align:center>控制系统结构</ion-title>
+		<ion-title style=text-align:center></ion-title>
 	</ion-toolbar>
 </ion-header>
-<ion-content color="success">
+<ion-content>
+	<ion-list *ngIf="!iscard" >
+		<ion-item *ngFor="let card of cards">
+			<ion-thumbnail slot="start">
+				<img src="./assets/{{card.kind}}.png">
+			</ion-thumbnail>
+			<ion-label>
+				<h2>{{card.name}}</h2>
+				<p>{{card.addr}}</p>
+			</ion-label>
+			<ion-button fill="outline" slot="end">View</ion-button>
+		</ion-item>
+	</ion-list>
+			  
+			  
 	<ion-grid  *ngIf="iscard" >
 		<ion-row>
-			<ion-col *ngFor="let card of cards" size-xs="6" size-sm="6" size-md="4" size-lg="3">
-				<ion-card color="light">
+			<ion-col *ngFor="let card of cards" size-xs="6" size-sm="4" size-md="3" size-lg="2">
+				<ion-card color="light" [routerDirection]="'root'" [routerLink]="'/'+card.kind">
 				<ion-card-header>
-					<ion-chip color="success" style="position: absolute;top: 1rem;right: 1rem;">
+					<ion-chip color="success" style="position : absolute;top : 0rem;right : 0rem;">
 						<ion-label>{{card.loc}}</ion-label>
 					</ion-chip>
-					<ion-card-title>{{card.name}}</ion-card-title>
-					<ion-card-subtitle>{{card.addr}}</ion-card-subtitle>
+					<ion-card-subtitle>{{card.name}}</ion-card-subtitle>
+					<ion-card-subtitle style="position: relative; top: -0.5rem;">{{card.addr}}</ion-card-subtitle>
 				</ion-card-header>
 				
 				<ion-card-content>
-					<img src="./assets/{{card.kind}}.png" style="width: 3rem">
+						<p *ngIf="card.kind=='collect'" outline  style="color:green; position : absolute;top : -0.7rem;left : 5.0rem;">
+								{{'22  ℃  |  86 %'}}
+						</p>
+						<p *ngIf="card.kind=='collect'" outline  style="color:green; position : absolute;top : 0.3rem;left : 5.0rem;">
+								{{'455ppm|788lx'}}
+						</p>
+					<img src="./assets/{{card.kind}}.png" style="position: relative; left: -0.9rem; top: -0.5rem; width: 2rem; height: 2rem;">
+					
 				</ion-card-content>
 				</ion-card>
 			</ion-col>
 		</ion-row>
 	</ion-grid>
 
-	<table *ngIf="!iscard" id="__01" cellpadding="0" cellspacing="0">
+	<!-- <table *ngIf="!iscard" id="__01" cellpadding="0" cellspacing="0">
 		<tr>
 			<td colspan="6">
 				<ion-img [routerDirection]="'root'" [routerLink]="url_contrl" src="./assets/nodesUI/nodesUI_01.gif"></ion-img>
@@ -64,13 +85,12 @@
 				<ion-img [routerDirection]="'root'" [routerLink]="url_collect" src="./assets/nodesUI/nodesUI_08.gif"></ion-img>
 			</td>
 		</tr>
-	</table>
-	<!-- <p class="text-state0">地址：0x31</p>
-	<p class="text-state1">地址：0x11</p>
-	<p class="text-state2">地址：0x21</p>
-	<p class="text-state3">地址：0x22</p>
-	<p class="text-state4">地址：0x23</p>
-	<p class="text-state5">地址：0x24</p> -->
+	</table> -->
+	<ion-fab horizontal="end" vertical="bottom" slot="fixed">
+        <ion-fab-button color="light" (click)="changeview()">
+          <ion-icon [name]="iscard?'git-merge':'apps'" ></ion-icon>
+        </ion-fab-button>
+	</ion-fab>
 </ion-content>
 <!-- <ion-footer>
 	<ion-toolbar>

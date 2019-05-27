@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { PopoverComponent } from './popover.component';
+import { NODES } from '../mock/nodes';
+import { AddSerivce } from "./add.service";
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -14,17 +17,10 @@ export class HomePage {
   public url_alarm:string = '/alarm';
   public url_history:string = '/history';
   num:number = 4;
-  cards = [
-    {name:"营养液节点",addr:"0X:11",kind:"water",loc:"1514室"},
-    {name:"环境控制节点",addr:"0X:21",kind:"air",loc:"1514室"},
-    {name:"环境采集节点",addr:"0X:31",kind:"collect",loc:"1514室"},
-    {name:"环境采集节点",addr:"0X:32",kind:"collect",loc:"1514室"},
-    {name:"环境采集节点",addr:"0X:33",kind:"collect",loc:"1514室"},
-    {name:"环境采集节点",addr:"0X:34",kind:"collect",loc:"1514室"},
-  ]
-
-
-  constructor(public popoverController: PopoverController) { }
+  node:any;
+  public cards = NODES;
+  constructor(public popoverController: PopoverController,public addService: AddSerivce) { 
+  }
 
   async presentPopover(ev: any) {
     const popover = await this.popoverController.create({
@@ -34,11 +30,21 @@ export class HomePage {
     });
     return await popover.present();
   }
-
+  changeview(){
+    this.iscard=!this.iscard;
+  }
   ngOnInit() {}
 
   onClick() {
 
   }
-
+  addnode(){
+    this.cards.push({name:"环境采集节点",addr:"ID:3004",kind:"collect",loc:"实验室3",loc2:"3",x:1,y:1});
+  }
+  removenode(){
+    this.cards.pop();
+  }
+  add(): void {
+    this.addService.add().subscribe(node => this.node = node);
+  }
 }

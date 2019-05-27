@@ -9,13 +9,14 @@ import { Color, BaseChartDirective, Label } from 'ng2-charts';
 })
 export class CollectPage implements OnInit {
   public url_history:string = '/history';
+  public now_data=['22','87','450','1000'];
   public lineChartData: ChartDataSets[] = [
-    { data: [15, 17, 29, 33, 37, 25, 16], label: '温度(℃)', yAxisID: 'y-axis-1' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: '湿度(%)', yAxisID: 'y-axis-0' },
-    { data: [1800, 480, 770, 900, 1000, 2700, 4000], label: '二氧化碳浓度(PPM)', yAxisID: 'y-axis-2' },
-    { data: [180, 480, 770, 90, 1000, 270, 400], label: '光照强度(LX)', yAxisID: 'y-axis-3' }
+    { data: [25, 24, 26, 26, 27, 25, 26,24, 28, 28, 27, 26, 25, 26], label: '温度(℃)', yAxisID: 'y-axis-1' },
+    { data: [75, 74, 73, 77, 77, 77, 77,77, 77, 78, 75, 74, 72, 71], label: '湿度(%)', yAxisID: 'y-axis-0' },
+    { data: [470, 470, 480, 490, 482, 488, 480,480, 480, 480, 480, 480, 480, 480], label: '二氧化碳浓度(PPM)', yAxisID: 'y-axis-2' },
+    { data: [1000, 1000, 1000, 1000, 1000, 1000, 1000,1000, 996, 987, 950, 988, 1050, 1025], label: '光照强度(LX)', yAxisID: 'y-axis-3' }
   ];
-  public lineChartLabels: Label[] = ['13：00', '13：01', '13：02', '13：03', '13：04', '13：05', '13：06'];
+  public lineChartLabels: Label[] = ['13：00', '13：01', '13：02', '13：03', '13：04', '13：05', '13：06','13：00', '13：01', '13：02', '13：03', '13：04', '13：05', '13：06'];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: true,
     scales: {
@@ -131,13 +132,13 @@ export class CollectPage implements OnInit {
 
   private generateNumber(i: number) { 
     if(i==0)
-      return Math.floor((Math.random()*5) + 26); //温度
+      return Math.floor((Math.random()*2) + 26); //温度
     else if(i==1)
-      return Math.floor((Math.random() * 10) + 70); //湿度
+      return Math.floor((Math.random() * 5) + 70); //湿度
     else if(i==2)
-      return Math.floor((Math.random() * 100) + 500);  //二氧化碳
+      return Math.floor((Math.random() * 50) + 450);  //二氧化碳
     else if(i==3)
-      return Math.floor((Math.random() * 100) + 1000);//光照
+      return Math.floor((Math.random() * 50) + 1000);//光照
   }
 
   // events
@@ -157,11 +158,15 @@ export class CollectPage implements OnInit {
 
 
   public pushOne() { //推送一组新数据并更新图表
+    var time =new Date().toTimeString().slice(0,8);
     this.lineChartData.forEach((x, i) => {
       const num = this.generateNumber(i);
       const data: number[] = x.data as number[];
       data.push(num);
+      this.now_data[i]=num.toString();
+      data.shift();
     });
-    this.lineChartLabels.push(`13：06`);
+    this.lineChartLabels.push(time);
+    this.lineChartLabels.shift();
   }
 }

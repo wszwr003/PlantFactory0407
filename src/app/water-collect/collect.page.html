@@ -1,8 +1,8 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="success">
     <ion-title style=text-align:center>营养液实时数据</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/water"></ion-back-button>返回
+      <ion-back-button defaultHref="/water"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button [routerDirection]="'root'" [routerLink]="url_history">
@@ -16,7 +16,7 @@
     <div class="flex">
       <div class="flex-item">
         <div style="display: block;">
-        <canvas baseChart width="400" height="200"
+        <canvas baseChart width="400" height="180"
                     [datasets]="lineChartData"
                     [labels]="lineChartLabels"
                     [options]="lineChartOptions"

@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="success">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>返回
+      <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button [routerDirection]="'root'" [routerLink]="url_time">
@@ -20,7 +20,7 @@
     <div class="flex">
       <div class="flex-item">
         <div style="display: block;">
-        <canvas baseChart width="400" height="200"
+        <canvas baseChart width="400" height="180"
                     [datasets]="lineChartData"
                     [labels]="lineChartLabels"
                     [options]="lineChartOptions"

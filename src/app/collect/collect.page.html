@@ -1,8 +1,8 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="success">
     <ion-title style=text-align:center>数据采集节点</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>返回
+      <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button [routerDirection]="'root'" [routerLink]="url_history">
@@ -13,10 +13,18 @@
   </ion-toolbar>
 </ion-header>
   <ion-content>
+
     <div class="flex">
+
       <div class="flex-item">
+
         <div style="display: block;">
-        <canvas baseChart width="400" height="200"
+            <p style=" position : absolute;top : 1.5rem;right : 6rem;">温度：{{now_data[0]}}℃</p>       
+            <p style=" position : absolute;top : 2.5rem;right : 6rem;">湿度: {{now_data[1]}}%</p>       
+            <p style=" position : absolute;top : 3.5rem;right : 6rem;">CO2：{{now_data[2]}}ppm</p>       
+            <p style=" position : absolute;top : 4.5rem;right : 6rem;">光照：{{now_data[3]}}lx</p>       
+
+        <canvas baseChart width="400" height="180"
                     [datasets]="lineChartData"
                     [labels]="lineChartLabels"
                     [options]="lineChartOptions"
@@ -24,7 +32,8 @@
                     [legend]="lineChartLegend"
                     [chartType]="lineChartType"
                     (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)"></canvas>
+                    (chartClick)="chartClicked($event)">
+        </canvas>
         </div>
       </div>
     </div>

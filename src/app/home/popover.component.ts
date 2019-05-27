@@ -1,21 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-popover',
   template: `
-
 <ion-list>
-  <ion-segment color="success">
-  <ion-segment-button checked layout="icon-bottom">
+  <ion-segment color="success" (ionChange)="segmentChanged($event)" value="contrl">
+  <ion-segment-button checked layout="icon-bottom" value="water">
   <img src="./assets/water.png" style="width: 3rem">
     <ion-label>营养液</ion-label>
   </ion-segment-button>
-  <ion-segment-button layout="icon-bottom">
-  <img src="./assets/air.png" style="width: 3rem">
+  <ion-segment-button layout="icon-bottom" value="contrl">
+  <img src="./assets/contrl.png" style="width: 3rem">
     <ion-label>环境控制</ion-label>
   </ion-segment-button>
-  <ion-segment-button layout="icon-bottom">
+  <ion-segment-button layout="icon-bottom" value="collect">
   <img src="./assets/collect.png" style="width: 3rem">
     <ion-label>环境采集</ion-label>
   </ion-segment-button>
@@ -42,5 +41,13 @@ export class PopoverComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  segmentChanged(ev: any) {
+    console.log('Segment changed:', ev.target.value);
+  }
+
+  add(ev: any) {
+    console.log('node add:', ev.target.value);
+  }
 
 }
