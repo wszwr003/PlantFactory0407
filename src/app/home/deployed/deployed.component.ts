@@ -61,7 +61,7 @@ export class DeployedComponent {
   };
 
   constructor() {
-    this.selectRoom('0');
+    this.selectRoom('1');
   }
 
   private sortRooms() {

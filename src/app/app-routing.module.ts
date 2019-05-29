@@ -1,20 +1,17 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LabTabComponent } from './home/lab-tab/lab-tab.component'
+import { DetialComponent } from './ble/detial/detial.component'
+
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'tabs/ctrl/ctrl',
+    redirectTo: 'tabs/ble',
     pathMatch: 'full'
   },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  },
+  {path: 'home',loadChildren: './home/home.module#HomePageModule'},
+  {path: 'ble-detail',component: DetialComponent},
+  {path: 'list',loadChildren: './list/list.module#ListPageModule'},
   { path: 'contrl', loadChildren: './contrl/contrl.module#ContrlPageModule' },
   { path: 'collect', loadChildren: './collect/collect.module#CollectPageModule' },
   { path: 'water-collect', loadChildren: './water-collect/collect.module#CollectPageModule' },
@@ -33,7 +30,7 @@ const routes: Routes = [
     component: LabTabComponent,
     children: [
       {
-        path: 'ctrl',
+        path: '',
         children: [
           {
             path: '',
@@ -42,7 +39,7 @@ const routes: Routes = [
         ],
       },
       {
-        path: 'deployed',
+        path: '',
         children: [
           {
             path: '',
@@ -51,7 +48,7 @@ const routes: Routes = [
         ],
       },
       {
-        path: 'settings',
+        path: '',
         children: [
           {
             path: '',

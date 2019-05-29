@@ -1,6 +1,7 @@
 import { Component, OnInit ,ViewChild} from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @Component({
   selector: 'app-collect',
@@ -123,10 +124,16 @@ export class CollectPage implements OnInit {
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
-  constructor() { }
+  constructor(private screenOrientation: ScreenOrientation) { }
 
   ngOnInit() {
     this.mockDataGet();
+    this.screenOrientation.lock(`landscape`);
+  }
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.screenOrientation.unlock();
   }
 
   private generateNumber(i: number) { 

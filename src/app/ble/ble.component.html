@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="secondary">蓝牙连接</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="scan()">
+        <ion-icon slot="icon-only" name="qr-scanner"></ion-icon>搜索设备
+      </ion-button>
+    </ion-buttons>
+    <ion-title style=text-align:center></ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let device of devices" (click) = "deviceSelected(device)" routerLink="/ble-detail" detail>
+      <ion-label text-wrap>
+        <h2>{{ device.name || 'Unnamed Bluetooth Device' }}</h2>
+        <p>{{ device.id }}</p>
+        <p>RSSI: {{ device.rssi }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p>{{ statusMessage }}</p>
+  </ion-toolbar>
+</ion-footer>

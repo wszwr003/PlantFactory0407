@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-contrl',
   templateUrl: './contrl.page.html',
@@ -20,11 +19,21 @@ export class ContrlPage implements OnInit {
     "icon-state-location7 icon-state-size",
     "icon-state-location8 icon-state-size",
     "icon-state-location9 icon-state-size"]
+  constructor() { 
 
-  constructor() { }
+  }
 
   ngOnInit() {
+  console.log('this.screenOrientation.type'); // logs the current orientation, example: 'landscape'
+    // console.log(this.screenOrientation.type); // logs the current orientation, example: 'landscape'
+    //this.screenOrientation.lock('portrait');
+    
   }
+  // ngOnDestroy(): void {
+  //   //Called once, before the instance is destroyed.
+  //   //Add 'implements OnDestroy' to the class.
+  //   this.screenOrientation.unlock();
+  // }
 
   onSelect(buttion_state: String, num: number): void {
     if (buttion_state === "已开启") {

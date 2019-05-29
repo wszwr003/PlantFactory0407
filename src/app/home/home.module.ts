@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 import { PopoverComponent } from './popover.component';
 import { DeployedComponent } from './deployed/deployed.component'
+import { BleComponent } from '../ble/ble.component'
 
 @NgModule({
   imports: [
@@ -18,12 +19,16 @@ import { DeployedComponent } from './deployed/deployed.component'
         component: HomePage
       },
       {
-        path: '',
+        path: 'deployed',
         component: DeployedComponent
+      },
+      {
+        path: 'ble',
+        component: BleComponent
       }
     ])
   ],
-  declarations: [HomePage,PopoverComponent,DeployedComponent],
+  declarations: [HomePage,PopoverComponent,DeployedComponent,BleComponent],
   entryComponents: [PopoverComponent]
 
 })
